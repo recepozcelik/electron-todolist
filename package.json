@@ -1,0 +1,31 @@
+{
+  "name": "electron-todolist",
+  "version": "1.0.0",
+  "description": "Electron.js To Do List",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . electron-todolist --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron.js To Do List\"",
+    "package-linux": "electron-packager . electron-todolist --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/linux/icon.png --prune=true --out=release-builds"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/recepozcelik/electron-todolist.git"
+  },
+  "keywords": [
+    "electron.js",
+    "todolist"
+  ],
+  "author": "Recep Ozcelik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/recepozcelik/electron-todolist/issues"
+  },
+  "homepage": "https://github.com/recepozcelik/electron-todolist#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^9.0.0",
+    "electron-packager": "^14.2.1"
+  }
+}
