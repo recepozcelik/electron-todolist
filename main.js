@@ -40,7 +40,12 @@ app.on("ready", () => {
 
   //event listening on 'save:todo'
   ipcMain.on("save:todo", (err, data) => {
-    if (data) {
+    if (
+      data &&
+      data.todoValue &&
+      data.todoValue != "" &&
+      data.todoValue != undefined
+    ) {
       let newTodo = {
         id: Math.random(),
         text: data.todoValue,
@@ -75,6 +80,22 @@ app.on("ready", () => {
   ipcMain.on("close:newTodo", () => {
     newTodoAddWindow.close();
     newTodoAddWindow = null;
+  });
+
+  //event listening on 'goto:listPage' (mainWindow)
+  ipcMain.on("goto:listPage", (err, data) => {
+    mainWindow.loadURL(
+      url.format({
+        pathname: path.join(__dirname, "pages/listPage.html"),
+        protocol: "file:",
+        slashes: true,
+      })
+    );
+  });
+
+  //event listening on 'todo:getAll' (listPage)
+  ipcMain.on("todo:getAll", () => {
+    mainWindow.webContents.send("todo:all", todoList); //send message to web parts (listPage)
   });
 });
 

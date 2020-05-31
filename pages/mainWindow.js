@@ -49,6 +49,10 @@ document.querySelector("#closeBtn").addEventListener("click", () => {
   }
 });
 
+document.querySelector("#gotoListPageLinkId").addEventListener("click", () => {
+  ipcRenderer.send("goto:listPage");
+});
+
 function checkTodoCount() {
   const container = document.querySelector(".todo-container");
   const alertContainer = document.querySelector(".alert-container");
