@@ -5,6 +5,6 @@ Electron.js To Do List Example
 1. Run "npm install" command
 2. Run "npm start"
 
-\*\*\* For package for windows, run "npm run pakage-win" command
+\*\*\* For package for windows, run "npm run package-win" command
 
 \*\*\* For navigation look at the mainwindow bottom
